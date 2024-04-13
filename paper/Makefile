@@ -9,8 +9,8 @@ BIB_NAME = literature.bib
 
 # ~~~~~~~~~~~~~~~~~~~~ Maybe edit ~~~~~~~~~~~~~~~~~~~~
 
-BIBER       = bibtex
-BIBER_FLAGS =
+BIBTEX       = bibtex
+BIBTEX_FLAGS =
 
 PDFLATEX       = pdflatex
 PDFLATEX_FLAGS = -interaction=nonstopmode -file-line-error
@@ -19,8 +19,8 @@ PDFLATEX_FLAGS = -interaction=nonstopmode -file-line-error
 
 CONTENT_PDF := $(TEX_NAME).pdf
 CONTENT_TEX := $(TEX_NAME).tex
+CONTENT_AUX := $(TEX_NAME).aux
 CONTENT_BBL := $(TEX_NAME).bbl
-CONTENT_BCF := $(TEX_NAME).bcf
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # ~~~~~~~~~~~~~~~~~~~~ Rules ~~~~~~~~~~~~~~~~~~~~
@@ -32,11 +32,11 @@ main: $(CONTENT_PDF)
 $(CONTENT_PDF): $(CONTENT_TEX) $(CONTENT_BBL)
 	$(PDFLATEX) $(PDFLATEX_FLAGS) $(patsubst %.tex,%,$<)
 
-$(CONTENT_BCF): $(CONTENT_TEX)
+$(CONTENT_AUX): $(CONTENT_TEX)
 	$(PDFLATEX) $(PDFLATEX_FLAGS) $(patsubst %.tex,%,$<)
 
-$(CONTENT_BBL): $(CONTENT_BCF) $(BIB_NAME)
-	$(BIBER) $(BIBER_FLAGS) $(patsubst %.bcf,%,$<)
+$(CONTENT_BBL): $(CONTENT_AUX) $(BIB_NAME)
+	$(BIBTEX) $(BIBTEX_FLAGS) $(patsubst %.aux,%,$<)
 
 .PHONY: clean
 clean:

@@ -1,10 +1,13 @@
-% ViT 1x
+% ViT 1x make
 % Authors: Marcel Simader (marcel.simader@jku.at)
 %          Melissa Frischherz
 % Date: 20.03.2024
 \documentclass[conference]{IEEEtran}
 
-\usepackage{cite}
+% Preamble {{{
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% ~~~~~~~~~~~~~~~~~~~~ Preamble ~~~~~~~~~~~~~~~~~~~~
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{algorithmic}
@@ -12,8 +15,10 @@
 \usepackage{textcomp}
 \usepackage{xcolor}
 
+\usepackage{cite}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\bibliographystyle{./IEEEtran}
 
 % ~~~~~~~~~~~~~~~~~~~~ Custom Packages ~~~~~~~~~~~~~~~~~~~~
 
@@ -27,15 +32,18 @@
 % ~~~~~~~~~~~~~~~~~~~~ Custom Settings ~~~~~~~~~~~~~~~~~~~~
 
 \graphicspath{./figures}
-\bibliographystyle{./IEEEtran}
-\bibliography{./literature.bib}
 
-% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-% ~~~~~~~~~~~~~~~~~~~~ Begin Document ~~~~~~~~~~~~~~~~~~~~
-% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% }}}
+
+% Document {{{
+% % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% % ~~~~~~~~~~~~~~~~~~~~ Document ~~~~~~~~~~~~~~~~~~~~
+% % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 \begin{document}
 
+% Title {{{
+% ~~~~~~~~~~~~~~~~~~~~ Title ~~~~~~~~~~~~~~~~~~~~
 \title{Conference Paper Title*\\
 {\footnotesize \textsuperscript{*}Note: Sub-titles are not captured in Xplore and
 should not be used}
@@ -55,11 +63,10 @@ email address or ORCID}
 }
 
 \maketitle
+% }}}
 
-% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-% ~~~~~~~~~~~~~~~~~~~~ Begin Contents ~~~~~~~~~~~~~~~~~~~~
-% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+% Abstract {{{
+% ~~~~~~~~~~~~~~~~~~~~ Abstract ~~~~~~~~~~~~~~~~~~~~
 \begin{abstract}
 \TODOB
 *CRITICAL: Do Not Use Symbols, Special Characters, Footnotes, or Math in Paper Title or
@@ -69,13 +76,22 @@ Abstract.
 \begin{IEEEkeywords}
 keywords
 \end{IEEEkeywords}
+% }}}
 
+% Introduction {{{
+% ~~~~~~~~~~~~~~~~~~~~ Introduction ~~~~~~~~~~~~~~~~~~~~
 \section{Introduction}
 \label{sec:Introduction}
 
 \TODOB\cite{test}.
+% }}}
 
-\section{References}
-\label{sec:References}
+% References {{{
+% ~~~~~~~~~~~~~~~~~~~~ References ~~~~~~~~~~~~~~~~~~~~
+\bibliography{IEEEfull,literature}
+% }}}
 
 \end{document}
+% }}}
+
+% vim: foldmethod=marker
