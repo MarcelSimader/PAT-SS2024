@@ -13,7 +13,7 @@
 \usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{textcomp}
-\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
 
 \usepackage{cite}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
@@ -26,8 +26,9 @@
 
 % ~~~~~~~~~~~~~~~~~~~~ Custom Commands ~~~~~~~~~~~~~~~~~~~~
 
-\newcommand{\TODO}[1]{\textbf{\textcolor{red}{#1}}\xspace}
-\newcommand{\TODOB}{\TODO{TODO}\xspace}
+\newcommand{\TODO}[1]{\textbf{\textcolor{Bittersweet}{#1}}\xspace}
+\newcommand{\TODOM}[1]{\TODO{\emph{TODO}: #1}\xspace}
+\newcommand{\TODOB}{\TODO{\emph{TODO}}\xspace}
 
 % ~~~~~~~~~~~~~~~~~~~~ Custom Settings ~~~~~~~~~~~~~~~~~~~~
 
@@ -44,22 +45,18 @@
 
 % Title {{{
 % ~~~~~~~~~~~~~~~~~~~~ Title ~~~~~~~~~~~~~~~~~~~~
-\title{Conference Paper Title*\\
-{\footnotesize \textsuperscript{*}Note: Sub-titles are not captured in Xplore and
-should not be used}
-}
+\title{Exploring Existing Machine Learning Approaches Discerning the Quality of Source
+Code Identifiers}
 
-\author{\IEEEauthorblockN{1\textsuperscript{st} Given Name Surname}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address or ORCID}
+\author{\IEEEauthorblockN{Marcel Simader}
+\IEEEauthorblockA{\textit{AI for Software Engineering, Topic 3} \\
+\textit{k11823075 \textfractionsolidus{} SKZ 521}\\
+marcel.simader@jku.at}
 \and
-\IEEEauthorblockN{2\textsuperscript{nd} Given Name Surname}
-\IEEEauthorblockA{\textit{dept. name of organization (of Aff.)} \\
-\textit{name of organization (of Aff.)}\\
-City, Country \\
-email address or ORCID}
+\IEEEauthorblockN{Melissa Frischherz}
+\IEEEauthorblockA{\textit{AI for Software Engineering, Topic 3} \\
+\textit{k12011649 \textfractionsolidus{} SKZ 521}\\
+melissa.frischherz@gmail.com}
 }
 
 \maketitle
@@ -68,13 +65,20 @@ email address or ORCID}
 % Abstract {{{
 % ~~~~~~~~~~~~~~~~~~~~ Abstract ~~~~~~~~~~~~~~~~~~~~
 \begin{abstract}
-\TODOB
-*CRITICAL: Do Not Use Symbols, Special Characters, Footnotes, or Math in Paper Title or
-Abstract.
+    The quality of source code identifiers has a direct, and measurable impact on program
+    comprehension, which indirectly influences validity, maintainability, and security of
+    software. Exploiting natural language processing (NLP) and machine learning models,
+    such as large language models (LLM), could prove to be a powerful addition to the code
+    analyst's toolkit in the future. In this paper, we will perform a small-scale survey
+    of existing approaches attempting to determine the quality of identifiers. Such a
+    measure can be used to evaluate naming conventions in big code bases, suggest new
+    context-aware names to developers on-the-fly, or even find semantic relationships
+    between identifiers across languages and programs.
 \end{abstract}
 
 \begin{IEEEkeywords}
-keywords
+Machine Learning, Natural Language Processing, Code design, Maintainability, Software
+Quality/SQA.
 \end{IEEEkeywords}
 % }}}
 
@@ -83,13 +87,149 @@ keywords
 \section{Introduction}
 \label{sec:Introduction}
 
-\TODOB\cite{test}.
+\TODOM{Explain kinds of identifiers, and why they matter. Rich information content of
+atomic parts of a programming language's AST.}
+
+\TODOM{State (and show evidence for) importance of good naming for quality assurance of
+software, maintainability, etc.}
+
+% }}}
+
+% Background {{{
+% ~~~~~~~~~~~~~~~~~~~~ Background ~~~~~~~~~~~~~~~~~~~~
+\section{Background}
+\label{sec:Background}
+
+% Machine Learning {{{
+\subsection{Machine Learning}
+\label{ssec:Machine-Learning}
+
+\TODOM{Brief discussions of supervised/unsupervised techniques, neural networks, deep
+learning, and RNNs.}
+
+% }}}
+
+% Machine Learning {{{
+\subsection{Natural Language Processing}
+\label{ssec:Natural-Language-Processing}
+% }}}
+
+\TODOM{Brief discussions of $n$-grams, grammar, and the attention mechanism.}
+
+% }}}
+
+% Survey {{{
+% ~~~~~~~~~~~~~~~~~~~~ Survey ~~~~~~~~~~~~~~~~~~~~
+\section{Survey}
+\label{sec:Survey}
+
+% Traditional Heuristic Approaches {{{
+\subsection{Traditional Heuristic Approaches}
+\label{ssec:Traditional-Heuristic-Approaches}
+\TODOM{``Intelligent'' refactoring and renaming, e.g.\@ in IntelliJ IDEA.}
+% }}}
+
+% RNNs and LSTMs {{{
+\subsection{RNNs and LSTMs}
+\label{ssec:RNNs and LSTMs}
+\TODOM{Literature like the LSTM approach of ``A Neural Model for Method Name Generation
+from Functional Description'' by Sa Gao et al.\cite{Gao2019IdentGen}}
+% }}}
+
+% LLMs and Beyond {{{
+\subsection{LLMs and Beyond }
+\label{ssec:LLMs-and-Beyond }
+\TODOM{Literature like the LLM approach of ``How Well Can Masked Langauge Models Spot
+Identifiers That Violate Naming Guidelines?'' by Johannes Villmow et
+al.\cite{Villmow2023Violations}}
+% }}}
+
+% }}}
+
+% Discussion and Future Work {{{
+% ~~~~~~~~~~~~~~~~~~~~ Discussion and Future Work ~~~~~~~~~~~~~~~~~~~~
+\section{Discussion and Future Work}
+\label{sec:Discussion-and-Future-Work}
+
+\TODOM{Potential for fully-integrated tools, or CI pipeline utilities. Application of
+cutting-edge large language models. Surprising lack of experiments with GPTs?}
+% }}}
+
+% Conclusion {{{
+% ~~~~~~~~~~~~~~~~~~~~ Conclusion ~~~~~~~~~~~~~~~~~~~~
+\section{Conclusion}
+\label{sec:Conclusion}
+
+\TODOB
 % }}}
 
 % References {{{
 % ~~~~~~~~~~~~~~~~~~~~ References ~~~~~~~~~~~~~~~~~~~~
+
+% WARNING: This is a temporary macro to show references before we cite them in the text.
+% TODO(Marcel): REMOVE after outline completion
+\nocite{*}
+
 \bibliography{IEEEfull,literature}
 % }}}
+
+\onecolumn
+\appendix{Additional Notes}
+
+\begin{verbatim}
+    Formulation of Topic Keywords/Key Phrases
+    ------------------------------------------------------------------------------------
+
+    Topic is `AI in Software Engineering`:
+        - Natural Language Processing (NLP)
+        - Large Language Models
+        - Recurrent Neural Networks (RNN) and Encoder-Decoder models
+        - Code quality measurement, improvement and assurance
+        - Handling of identifiers in source code -- atomic units of knowledge, making up
+          most of all source code
+        - Understanding identifier in a functional sense (what do they mean to say?) and
+          making (cross-language) connections between them (are they about the same
+          thing?)
+
+    Research Question
+    ------------------------------------------------------------------------------------
+
+    We answer the following questions[^1] in a maximum of two sentences, optimally one.
+    Statements here are not cited, as they are not part of the academic text. Beware of
+    plagiarism -- do not use anything from here directly.
+
+    Introduction:
+    > Identifiers make up about 70% of all source code, and hence encode a lot of
+    > information in a natural language format (with additional syntactic rules.) Code
+    > quality and comprehension might be dramatically improved by considering this
+    > information.
+
+    Problem Statement:
+    > Since identifiers are natural language, this information can be hard to make sense
+    > of with automated tooling for code analysis, improvement, automatic completion, or
+    > quality assurance.
+
+    State of the Art (in Literature):
+    > There exist NLP models, mostly based on deep learning but also some statistical
+    > analysis, which can predict identifiers to aid developers, measure the quality of
+    > existing identifiers, and establish semantic relationships between identifiers,
+    > within or across languages.
+
+    Our approach:
+    > We collect a list of literature presenting state-of-the-art machine learning
+    > techniques to draw broader conclusions from: Effectiveness of current approaches,
+    > categories of implementation, and possible pathways for future research.
+
+    Implementation:
+    > [ Not applicable? Err... we write the paper? ]
+
+    Results:
+    > Ideally, we present the reader with information which helps them understand the
+    > landscape of identifier-specific software engineering tools, and inspire them
+    > to find gaps in knowledge, or improve on existing ideas.
+
+    [^1]: Writing template, courtesy of Steve Eastbrook.
+\end{verbatim}
 
 \end{document}
 % }}}
