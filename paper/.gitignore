@@ -9,4 +9,4 @@
 
 # TODO(Marcel): Set up CI for auto-compiling document
 # exclude PDF for now
-*.pdf
+# *.pdf
