@@ -13,16 +13,17 @@
 \usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{textcomp}
+\usepackage{booktabs}
 \usepackage[dvipsnames]{xcolor}
-
 \usepackage{cite}
-\bibliographystyle{./IEEEtran}
 
 % ~~~~~~~~~~~~~~~~~~~~ Custom Packages ~~~~~~~~~~~~~~~~~~~~
 
 \usepackage{xspace}
 \usepackage{tikz}
 \usepackage{pgfplots}
+\usepackage[nohyperlinks, printonlyused]{acronym}
+\usepackage{csquotes}
 
 % ~~~~~~~~~~~~~~~~~~~~ Custom Commands ~~~~~~~~~~~~~~~~~~~~
 
@@ -32,7 +33,9 @@
 
 % ~~~~~~~~~~~~~~~~~~~~ Custom Settings ~~~~~~~~~~~~~~~~~~~~
 
+\bibliographystyle{./IEEEtran}
 \graphicspath{./figures}
+\pgfplotsset{compat=1.18}
 
 % }}}
 
@@ -43,21 +46,38 @@
 
 \begin{document}
 
+% ~~~~~~~~~~~~~~~~~~~~ Acronyms ~~~~~~~~~~~~~~~~~~~~
+
+\newacro{AI}[AI]{Artificial Intelligence}
+\newacro{ML}[ML]{Machine Learning}
+\newacro{NLP}[NLP]{Natural Language Processing}
+\newacro{LM}[LM]{Language Model}
+\newacro{LLM}[LLM]{Large Language Model}
+\newacro{DNN}[DNN]{Deep Neural Network}
+\newacro{RNN}[RNN]{Recurrent Neural Network}
+\newacro{LSTM}[LSTM]{Long Short-Term Memory}
+\newacroplural{LSTM}[LSTMs]{Long Short-Term Memory Models}
+\newacro{BPE}[BPE]{Byte Pair Encoding}
+\newacro{OOV}[OOV]{Out of Vocabulary}
+\newacro{LBL}[LBL]{Logbilinear}
+\newacro{GPT}[GPT]{Generative Pre-Trained Transformer}
+
 % Title {{{
 % ~~~~~~~~~~~~~~~~~~~~ Title ~~~~~~~~~~~~~~~~~~~~
 \title{Exploring Existing Machine Learning Approaches Discerning the Quality of Source
 Code Identifiers}
 
 \author{\IEEEauthorblockN{Marcel Simader}
-\IEEEauthorblockA{\textit{AI for Software Engineering, Topic 3} \\
+\IEEEauthorblockA{\textit{\acs{AI} for Software Engineering, Topic 3} \\
 \textit{k11823075 \textfractionsolidus{} SKZ 521}\\
 marcel.simader@jku.at}
 \and
 \IEEEauthorblockN{Melissa Frischherz}
-\IEEEauthorblockA{\textit{AI for Software Engineering, Topic 3} \\
+\IEEEauthorblockA{\textit{\acs{AI} for Software Engineering, Topic 3} \\
 \textit{k12011649 \textfractionsolidus{} SKZ 521}\\
 melissa.frischherz@gmail.com}
 }
+\acused{AI}
 
 \maketitle
 % }}}
@@ -73,9 +93,9 @@ melissa.frischherz@gmail.com}
     names, or even finding semantic relationships between identifiers across languages and
     programs.
 
-    By leveraging promising advancements in natural language processing (NLP) and machine
-    learning, particularly the recent large language models (LLM), to analyze the
-    information found in identifiers, we could greatly improve the code analyst's toolkit.
+    By leveraging promising advancements in \ac{NLP} and machine learning, particularly
+    the recent \acp{LLM}, to analyze the information found in identifiers, we could
+    greatly improve the code analyst's toolkit.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -98,13 +118,13 @@ correlates with less readable, maintainable, and overall worse quality
 code~\cite{Butler2010Empirical}.
 
 In the following sections, we present a survey of various papers with a focus on
-identifiers in the context of software engineering and artificial intelligence. We pay
-special attention to papers that attempt to qualitatively assess identifier names, which
-opens the path to generating context-dependant identifier suggestions, or finding failures
-to adhere to (implicitly) established naming conventions. Section~\ref{sec:Background}
-will give some background on the theoretical and technical frameworks,
-section~\ref{sec:Methodology} will discuss how we searched for, and selected papers,
-section~\ref{sec:Survey} will present the findings of the survey, and finally
+identifiers in the context of software engineering and \acs{AI}. We pay special attention
+to papers that attempt to qualitatively assess identifier names, which opens the path to
+generating context-dependant identifier suggestions, or finding failures to adhere to
+(implicitly) established naming conventions. Section~\ref{sec:Background} will give some
+background on the theoretical and technical frameworks, section~\ref{sec:Methodology} will
+discuss how we searched for, and selected papers, section~\ref{sec:Survey} will present
+the findings of the survey, and finally
 sections~\ref{sec:Discussion-and-Future-Work}~and~\ref{sec:Conclusion} will conclude it
 with a discussion and ideas for future work.
 
@@ -115,23 +135,21 @@ with a discussion and ideas for future work.
 \section{Background}
 \label{sec:Background}
 
-% Machine Learning {{{
-\subsection{Machine Learning}
-\label{ssec:Machine-Learning}
-
-\TODOM{Brief discussions of supervised/unsupervised techniques, neural networks, deep
-learning, and RNNs.}
-
-% }}}
-
 % Natural Language Processing {{{
-\subsection{Natural Language Processing}
+\subsection{\acl{NLP}}
 \label{ssec:Natural-Language-Processing}
 % }}}
 
-\TODOM{Brief discussions of $n$-grams, grammar, and the attention mechanism.}
+\TODOM{Brief discussions of grammar, $n$-grams, and vocabulary (specifically %
+       OOV, out of vocabulary problem)}
 
-\TODOM{EXPLAIN OOV.}
+% Machine Learning {{{
+\subsection{\acl{ML}}
+\label{ssec:Machine-Learning}
+
+\TODOM{Brief discussions of neural networks, deep learning, RNNs, and transformers.}
+
+% }}}
 
 % }}}
 
@@ -146,23 +164,23 @@ We started by establishing an initial overview of the topic landscape, which led
 more systematic search of papers pertaining to the ideas discussed in
 Section~\ref{sec:Introduction}. This was done by crafting search strings with relevant
 keywords for IEEEXplore\footnote{https://ieeexplore.ieee.org} and Google
-Scholar\footnote{scholar.google.com}. The search queries we used for both services are as
-follows:
+Scholar\footnote{https://scholar.google.com}. The search queries we used for both services
+are as follows:
 
 \begin{description}[\IEEEsetlabelwidth{Google Scholar:}]
     \item[IEEEXplore:]
 
-    ``(AI OR LLM OR Language Model OR NLP) AND Identifiers AND (Completion OR Analysis OR
-    Suggestion)''
+    \enquote{(AI OR LLM OR Language Model OR NLP) AND Identifiers AND %
+             (Completion OR Analysis OR Suggestion)}
 
     \item[Google Scholar:]
 
-    ``Large Language Models for measuring quality of identifiers in source code''
+    \enquote{Large Language Models for measuring quality of identifiers in source code}
 \end{description}
 
 Of the 190 papers the IEEEXplore query yielded, we hand selected 30 to include in broader
 analysis. For the Google Scholar search query, we hand selected 4 papers directly. In
-total, we used 34 studies to establish the landscape, and looked further into 8 of them.
+total, we used 34 studies to establish the landscape, and looked further into 7 of them.
 Any other papers cited in the work were used for supplemental information.
 
 % }}}
@@ -176,11 +194,11 @@ Research into the significance of identifiers in software engineering has been o
 since at least 1999, which is the oldest paper in our survey~\cite{Antoniol1999OO}, but
 has only recently gained in popularity. A histogram of the years of publication for our
 survey papers can be seen in figure~\ref{fig:Histogram-of-Survey-Paper-Publications}. We
-suspect this is due to the major improvements in NLP around the time Google released its
-paper on the transformer in 2017~\cite{Ashish2017Transformer}, Peters et al.\@ presented
-ELMo in the following year~\cite{Peters2018DeepCW}, and finally, BERT was proposed by
-Devlin et al.\@ in 2019~\cite{Devlin2019BERT}. This aligns with the big spike in
-publications that same year.
+suspect this is due to the major improvements in \ac{NLP} around the time Google released
+its paper on the transformer in 2017~\cite{Ashish2017Transformer}, Peters et al.\@
+presented ELMo in the following year~\cite{Peters2018DeepCW}, and finally, BERT was
+proposed by Devlin et al.\@ in 2019~\cite{Devlin2019BERT}. This aligns with the big spike
+in publications that same year.
 
 \begin{figure}[h!]
     \begin{tikzpicture}
@@ -192,54 +210,119 @@ publications that same year.
                                2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023,%
                                2024
                                }]
-            \addplot+[y filter/.expression={y==0 ? nan : y}]%
+             \addplot+[y filter/.expression={y==0 ? nan : y}, line width=0.2pt]%
                 table [col sep=comma, header=true]%
                 {./data/ext-pubdates.csv};
         \end{axis}
     \end{tikzpicture}
-
     \caption{Histogram of Survey Paper Publications}
     \label{fig:Histogram-of-Survey-Paper-Publications}
 \end{figure}
 
-We have divided the survey into three subsections, one on ``traditional'' algorithmic
-approaches, one on approaches using RNNs and LSTMs, and one on very recent advancements
-like transformers, and large language models.
+We have divided the survey into three subsections, one on \enquote{traditional}
+algorithmic approaches, one on approaches using \acp{RNN} and \acp{LSTM}, and one on very
+recent advancements like transformers, and \acp{LLM}.
 
 % Algorithmic Approaches {{{
 \subsection{Algorithmic Approaches}
 \label{ssec:Algorithmic-Approaches}
 
-The simplest approach to quantifying the correct naming of identifiers in our survey was
+The simplest approach to quantifying the correct naming of identifiers in our survey is
 found in the paper by Charitsis et al.\@~\cite{Charitsis2021Assessing}, which focuses on
 the skills of computer science students. A reduced syntax backed by the Java programming
-language named Karel was used along with student submissions to create a simple,
-manually-annotated dataset of function name quality. Students submitted source code for an
-identical problem statement in Karel. The submitted code was compiled in-memory and
+language named Karel is used along with student submissions to create a simple,
+manually-annotated dataset of function name quality. Students submitted their source code
+solutions for a problem statement in Karel. The submitted code was compiled in-memory and
 instrumented, wherein the program state was compared before and after every function
 execution to produce a pairwise similarity score of each student function. This similarity
-score, along with the manually annotated quality was used to train a discriminator model
+score, along with the manually annotated quality is used to train a discriminator model
 producing scores on unseen identifiers. Charitsis et al.\@ report classifier accuracies
 between 89.36\% and 76.16\%, depending on the problem hardness.
 
-We also examined a paper which aims to tackle the out of vocabulary problem (see
-subsection~\ref{ssec:Natural-Language-Processing})
+We also examined a paper which aims to tackle the \ac{OOV} problem (see
+subsection~\ref{ssec:Natural-Language-Processing}) by means of identifier
+splitting~\cite{Shi2022Splitting}. Shi et al.\@ show that by modifying the \ac{BPE}
+algorithm, which was originally developed for compression but later adopted by Karampatsis
+et al.\@~\cite{Karampatsis2020BPE}, the performance of language models can be improved
+slightly. In their study, they argue that the semantics of identifiers, e.g.\@
+\verb-getHeader-, is lost in the \ac{BPE} scheme. A better approach would be to split the
+identifier by certain heuristics -- the Ronin approach in this case -- and turn the
+previous example into \verb-get- and \verb-Header-. Splitting identifiers with high
+accuracy is crucial in this domain, which makes solutions to this problem particularly
+sought after: Allamanis et al.\@ present another approach in which they split a token into
+subtokens~\cite{Allamanis2015Suggesting}.
+
+The final publication foregoing neural networks in our survey is the extensive article on
+identifier renaming and prediction suggestion by Zhang et
+al.~\cite{Zhang2023RenamingPrediction}. This is the only study we analyzed which uses a
+decision-tree based model. More accurately, it uses several decision trees in an
+arrangement called a \enquote{Random Forest}, from which an aggregate result is drawn. A
+particularly interesting facet of this work is an emphasis on the fact that similar
+identifiers usually change in similar ways, which lead the authors to utilize file
+histories to aid in improving accuracy.
 
 % }}}
 
-% RNNs and LSTMs {{{
-\subsection{RNNs and LSTMs}
-\label{ssec:RNNs and LSTMs}
-\TODOM{Literature like the LSTM approach of ``A Neural Model for Method Name Generation
-from Functional Description'' by Sa Gao et al.\cite{Gao2019IdentGen}}
+% DNNs and RNNs {{{
+\subsection{\acsp{DNN} and \acp{RNN}}
+\label{ssec:DNNs-RNNs-and-LSTMs}
+
+\acp{DNN} seem to be by far the most common approach in modern papers on identifier
+quality assessment. Allamanis et al.\@ present a variation on the \ac{LBL} \ac{LM}, the
+logbilinear context model~\cite{Allamanis2015Suggesting}. This neural network extends the
+long-distance context of the \ac{LBL}~\ac{LM} to encompass what is called the local and
+global context. This allows the model to more efficiently learn from an identifier's
+surroundings at \emph{every occurrence} of said identifier, along with a feature vector of
+general properties (e.g.\@ \enquote{constant value}, \enquote{integer type}). This, in
+combination with the exploitation of the semantic substructures of identifiers mentioned
+in the previous subsection, allows the model to far surpass the predictive qualities of
+the $n$-gram. Allamanis et al.\@ state that they introduce a \enquote{\textelp{} model
+that is to \textelp*{their} knowledge, the first that can propose neologisms
+\textelp{}}~\cite{Allamanis2015Suggesting}.
+
+Due to the sequential nature of text, the identifier naming problem is also particularly
+well-suited for \acp{RNN} and \acp{LSTM}, although we do not include a study on the
+latter. The paper by Gao et al.\@ focuses on an encoder-decoder \ac{RNN} model with the
+promising addition of the attention and copy mechanisms~\cite{Gao2019IdentGen}. Instead of
+reading the surrounding source code, documentation comments are used to train the model in
+this study. The addition of attention makes it possible for the model to learn which words
+are most important for each subtoken of the result. Neologisms are handled by copying,
+which makes it possible for the model to select subtokens from the data directly, without
+ever having learned them. Gao et al.\@ go on to show that an \ac{RNN} with both attention
+and copying surpasses simpler \acp{RNN} and tf-idf, a widespread method of information
+retrieval, in every metric that was measured.
+
 % }}}
 
 % Transformers, LLMs and Beyond {{{
-\subsection{Transformers, LLMs and Beyond}
+\subsection{Transformers, \acp{LLM} and Beyond}
 \label{ssec:LLMs-and-Beyond}
-\TODOM{Literature like the LLM approach of ``How Well Can Masked Langauge Models Spot
-Identifiers That Violate Naming Guidelines?'' by Johannes Villmow et
-al.\cite{Villmow2023Violations}}
+
+The most modern, and in turn, most sophisticated and performant \acp{LM} utilize
+transformer models. Villmow et al.\@ propose such a transformer to discriminate between
+identifiers that adhere to, or conversely, break naming
+conventions~\cite{Villmow2023Violations}. Both a generative and a discriminative model was
+trained: The generative model tries to fill in gaps in presented source code, while the
+discriminative model uses a \enquote{weak \ac{AI}} to generate naming suggestions which
+are then classified. The dataset used to train their \ac{LLM} was manually annotated and
+contains over 6000 data points, which are freely available for future research. The model
+that performed the best, dubbed \textsc{CodeDoctor} by the authors, was the generative
+model with 247 million parameters. For comparison, the \textsc{GraphCodeBERT}
+model~\cite{Guo2020GraphCodeBERT} based on BERT which was mentioned in
+section~\ref{sec:Survey}, ranked third and contains 125 million parameters.
+
+Another model based on BERT, and by far the most complex in terms of scope and execution
+of the papers presented thus far, is the one presented by Ju et
+al.\@~\cite{Ju2023XLangBinding}. This study delves into the scarcely researched topic of
+tracking identifiers across programming languages and projects -- in fact, this is the
+only paper in our survey to attempt this feat. They achieved cross-language identifier
+binding by string-matching, and then passing the potential match through stacked
+discriminators along with a pre-trained BERT model to apply contextual and framework
+knowledge. Interestingly, this was also the only paper to compare their results with the
+extremely popular IntelliJ IDEA: Whereas the IDE could correctly classify 564 unique and
+1203 duplicate identifier pairs, the novel model could respectively detect 3361 and 8454
+pairs.
+
 % }}}
 
 % }}}
@@ -249,8 +332,36 @@ al.\cite{Villmow2023Violations}}
 \section{Discussion and Future Work}
 \label{sec:Discussion-and-Future-Work}
 
-\TODOM{Potential for fully-integrated tools, or CI pipeline utilities. Application of
-cutting-edge large language models. Surprising lack of experiments with GPTs?}
+Our survey shows that a lot of ongoing research in this field looks promising, and could
+pose massive benefits for quality, maintainability, and validity of programs. Identifier
+quality assessment seems to be a rather niche, but surprisingly deep topic. It is not hard
+to imagine the potential for continuous integration pipelines to flag potentially
+inappropriate identifier names, or for IDEs to support fully cross-language refactoring
+tools. Such applications are still scarce, but do exist, as seen in the rename analysis
+tool by Peruma et al.\@, which uses source code and commit messages in an attempt to
+explain the decision making process behind name changes~\cite{Peruma2019}.
+
+One subfield with increasing importance appears to be the splitting of identifiers into
+subtokens that capture the meaning \emph{intended} by the developer with accuracy. Besides
+the papers we have already presented~\cite{Gao2019IdentGen, Shi2022Splitting,
+Allamanis2015Suggesting} there are clearly still improvements to be made, e.g.\@ Liu et
+al.\@~\cite{Liu2021CHIS}, making this a potentially fruitful future research topic.
+
+We acknowledge the potential of having missed some publications, as this survey was far
+from extensive or rigorous. Furthermore, there is a possibility that literature on tools
+already utilizing this research or on dedicated hobby projects has simply not been
+published or reviewed through reputable outlets. We propose that further research is
+needed to get a full grasp on how extensive tooling for this application of \acp{LM} is at
+this point in time.
+
+Perhaps this is the reason we were not able to find any publications involving the recent
+\acp{GPT} with billions of parameters developed mostly by OpenAI. There seems to be a big
+gap in understanding between the \enquote{small \acp{LLM}} and the incomprehensibly
+complex models currently being trained. The efficacy of OpenAI's
+ChatGPT\footnote{https://chat.openai.com} has recently come under more scrutiny, and our
+conjecture is that targeted approaches will remain more effective for this use
+case~\cite{Wu2023ChatGPT}.
+
 % }}}
 
 % Conclusion {{{
@@ -258,15 +369,38 @@ cutting-edge large language models. Surprising lack of experiments with GPTs?}
 \section{Conclusion}
 \label{sec:Conclusion}
 
-\TODOB
+This small-scale survey was compiled by querying two publishers, for which 34 results were
+found to be relevant. We analyzed 7 of these papers in more detail, and presented a brief
+overview of the research landscape as it currently stands. We found that the majority of
+proposed solutions to identifier quality assessment use \acp{DNN} like \acp{RNN} or
+transformers, but that simpler solutions like decision trees are still adequate in some
+circumstances. Table~\ref{tab:Overview-of-ML-Techniques-in-our-Survey} shows a breakdown
+of these categories. In our conclusion, we discussed potential applications for this
+research and future work.
+
+\begin{table}[h]
+    \centering
+    \caption{Overview of \acs{ML} Techniques in our Survey}
+    \label{tab:Overview-of-ML-Techniques-in-our-Survey}
+    \begin{tabular}{cr} \toprule
+        Type        & \# \\ \midrule
+        \ac{DNN}    & 1 \\
+        \ac{RNN}    & 1 \\
+        Transformer & 2 \\
+        Other       & 3 \\ \bottomrule
+    \end{tabular}
+
+    \vspace{3mm}\TODOM{Extend this to all 34 papers!}
+\end{table}
+
 % }}}
 
 % References {{{
 % ~~~~~~~~~~~~~~~~~~~~ References ~~~~~~~~~~~~~~~~~~~~
 
-% WARNING: This is a temporary macro to show references before we cite them in the text.
-% TODO(Marcel): REMOVE after outline completion
-\nocite{*}
+% % WARNING: This is a temporary macro to show references before we cite them in the text.
+% % TODO(Marcel): REMOVE after outline completion
+% \nocite{*}
 
 \bibliography{IEEEfull,literature}
 % }}}
