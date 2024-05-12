@@ -1,6 +1,6 @@
-% ViT 1x make
+% ViT 2x on-write make
 % Authors: Marcel Simader (marcel.simader@jku.at)
-%          Melissa Frischherz
+%          Melissa Frischherz (melissa.frischherz@gmail.com)
 % Date: 20.03.2024
 \documentclass[conference]{IEEEtran}
 
@@ -16,13 +16,13 @@
 \usepackage[dvipsnames]{xcolor}
 
 \usepackage{cite}
-\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
-    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \bibliographystyle{./IEEEtran}
 
 % ~~~~~~~~~~~~~~~~~~~~ Custom Packages ~~~~~~~~~~~~~~~~~~~~
 
 \usepackage{xspace}
+\usepackage{tikz}
+\usepackage{pgfplots}
 
 % ~~~~~~~~~~~~~~~~~~~~ Custom Commands ~~~~~~~~~~~~~~~~~~~~
 
@@ -89,11 +89,24 @@ Quality/SQA.
 \section{Introduction}
 \label{sec:Introduction}
 
-\TODOM{Explain kinds of identifiers, and why they matter. Rich information content of
-atomic parts of a programming language's AST.}
+Identifiers are the smallest unit of semantic information in program source code, yet they
+make up the majority of it~\cite{Butler2010Empirical}. This makes them both important to
+developers, who need them to comprehend software systems,  and practically indispensable
+to nearly all analytical tools~\cite{Gao2019IdentGen}. An empirical study published by
+Butler et~al.\@ shows that making poor choices for method, class, and type names
+correlates with less readable, maintainable, and overall worse quality
+code~\cite{Butler2010Empirical}.
 
-\TODOM{State (and show evidence for) importance of good naming for quality assurance of
-software, maintainability, etc.}
+In the following sections, we present a survey of various papers with a focus on
+identifiers in the context of software engineering and artificial intelligence. We pay
+special attention to papers that attempt to qualitatively assess identifier names, which
+opens the path to generating context-dependant identifier suggestions, or finding failures
+to adhere to (implicitly) established naming conventions. Section~\ref{sec:Background}
+will give some background on the theoretical and technical frameworks,
+section~\ref{sec:Methodology} will discuss how we searched for, and selected papers,
+section~\ref{sec:Survey} will present the findings of the survey, and finally
+sections~\ref{sec:Discussion-and-Future-Work}~and~\ref{sec:Conclusion} will conclude it
+with a discussion and ideas for future work.
 
 % }}}
 
@@ -111,12 +124,46 @@ learning, and RNNs.}
 
 % }}}
 
-% Machine Learning {{{
+% Natural Language Processing {{{
 \subsection{Natural Language Processing}
 \label{ssec:Natural-Language-Processing}
 % }}}
 
 \TODOM{Brief discussions of $n$-grams, grammar, and the attention mechanism.}
+
+\TODOM{EXPLAIN OOV.}
+
+% }}}
+
+% Methodology {{{
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% ~~~~~~~~~~~~~~~~~~~~ Methodology ~~~~~~~~~~~~~~~~~~~~
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\section{Methodology}
+\label{sec:Methodology}
+
+We started by establishing an initial overview of the topic landscape, which led us to a
+more systematic search of papers pertaining to the ideas discussed in
+Section~\ref{sec:Introduction}. This was done by crafting search strings with relevant
+keywords for IEEEXplore\footnote{https://ieeexplore.ieee.org} and Google
+Scholar\footnote{scholar.google.com}. The search queries we used for both services are as
+follows:
+
+\begin{description}[\IEEEsetlabelwidth{Google Scholar:}]
+    \item[IEEEXplore:]
+
+    ``(AI OR LLM OR Language Model OR NLP) AND Identifiers AND (Completion OR Analysis OR
+    Suggestion)''
+
+    \item[Google Scholar:]
+
+    ``Large Language Models for measuring quality of identifiers in source code''
+\end{description}
+
+Of the 190 papers the IEEEXplore query yielded, we hand selected 30 to include in broader
+analysis. For the Google Scholar search query, we hand selected 4 papers directly. In
+total, we used 34 studies to establish the landscape, and looked further into 8 of them.
+Any other papers cited in the work were used for supplemental information.
 
 % }}}
 
@@ -125,10 +172,59 @@ learning, and RNNs.}
 \section{Survey}
 \label{sec:Survey}
 
-% Traditional Heuristic Approaches {{{
-\subsection{Traditional Heuristic Approaches}
-\label{ssec:Traditional-Heuristic-Approaches}
-\TODOM{``Intelligent'' refactoring and renaming, e.g.\@ in IntelliJ IDEA.}
+Research into the significance of identifiers in software engineering has been ongoing
+since at least 1999, which is the oldest paper in our survey~\cite{Antoniol1999OO}, but
+has only recently gained in popularity. A histogram of the years of publication for our
+survey papers can be seen in figure~\ref{fig:Histogram-of-Survey-Paper-Publications}. We
+suspect this is due to the major improvements in NLP around the time Google released its
+paper on the transformer in 2017~\cite{Ashish2017Transformer}, Peters et al.\@ presented
+ELMo in the following year~\cite{Peters2018DeepCW}, and finally, BERT was proposed by
+Devlin et al.\@ in 2019~\cite{Devlin2019BERT}. This aligns with the big spike in
+publications that same year.
+
+\begin{figure}[h!]
+    \begin{tikzpicture}
+        \begin{axis}[%
+            ybar, bar width=5pt, ylabel={\# Publications}, xlabel={Year},
+            enlargelimits=0.03,
+            symbolic x coords={1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007,%
+                               2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015,%
+                               2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023,%
+                               2024
+                               }]
+            \addplot+[y filter/.expression={y==0 ? nan : y}]%
+                table [col sep=comma, header=true]%
+                {./data/ext-pubdates.csv};
+        \end{axis}
+    \end{tikzpicture}
+
+    \caption{Histogram of Survey Paper Publications}
+    \label{fig:Histogram-of-Survey-Paper-Publications}
+\end{figure}
+
+We have divided the survey into three subsections, one on ``traditional'' algorithmic
+approaches, one on approaches using RNNs and LSTMs, and one on very recent advancements
+like transformers, and large language models.
+
+% Algorithmic Approaches {{{
+\subsection{Algorithmic Approaches}
+\label{ssec:Algorithmic-Approaches}
+
+The simplest approach to quantifying the correct naming of identifiers in our survey was
+found in the paper by Charitsis et al.\@~\cite{Charitsis2021Assessing}, which focuses on
+the skills of computer science students. A reduced syntax backed by the Java programming
+language named Karel was used along with student submissions to create a simple,
+manually-annotated dataset of function name quality. Students submitted source code for an
+identical problem statement in Karel. The submitted code was compiled in-memory and
+instrumented, wherein the program state was compared before and after every function
+execution to produce a pairwise similarity score of each student function. This similarity
+score, along with the manually annotated quality was used to train a discriminator model
+producing scores on unseen identifiers. Charitsis et al.\@ report classifier accuracies
+between 89.36\% and 76.16\%, depending on the problem hardness.
+
+We also examined a paper which aims to tackle the out of vocabulary problem (see
+subsection~\ref{ssec:Natural-Language-Processing})
+
 % }}}
 
 % RNNs and LSTMs {{{
@@ -138,9 +234,9 @@ learning, and RNNs.}
 from Functional Description'' by Sa Gao et al.\cite{Gao2019IdentGen}}
 % }}}
 
-% LLMs and Beyond {{{
-\subsection{LLMs and Beyond }
-\label{ssec:LLMs-and-Beyond }
+% Transformers, LLMs and Beyond {{{
+\subsection{Transformers, LLMs and Beyond}
+\label{ssec:LLMs-and-Beyond}
 \TODOM{Literature like the LLM approach of ``How Well Can Masked Langauge Models Spot
 Identifiers That Violate Naming Guidelines?'' by Johannes Villmow et
 al.\cite{Villmow2023Violations}}
@@ -174,64 +270,6 @@ cutting-edge large language models. Surprising lack of experiments with GPTs?}
 
 \bibliography{IEEEfull,literature}
 % }}}
-
-\onecolumn
-\appendix{Additional Notes}
-
-\begin{verbatim}
-    Formulation of Topic Keywords/Key Phrases
-    ------------------------------------------------------------------------------------
-
-    Topic is `AI in Software Engineering`:
-        - Natural Language Processing (NLP)
-        - Large Language Models
-        - Recurrent Neural Networks (RNN) and Encoder-Decoder models
-        - Code quality measurement, improvement and assurance
-        - Handling of identifiers in source code -- atomic units of knowledge, making up
-          most of all source code
-        - Understanding identifier in a functional sense (what do they mean to say?) and
-          making (cross-language) connections between them (are they about the same
-          thing?)
-
-    Research Question
-    ------------------------------------------------------------------------------------
-
-    We answer the following questions[^1] in a maximum of two sentences, optimally one.
-    Statements here are not cited, as they are not part of the academic text. Beware of
-    plagiarism -- do not use anything from here directly.
-
-    Introduction:
-    > Identifiers make up about 70% of all source code, and hence encode a lot of
-    > information in a natural language format (with additional syntactic rules.) Code
-    > quality and comprehension might be dramatically improved by considering this
-    > information.
-
-    Problem Statement:
-    > Since identifiers are natural language, this information can be hard to make sense
-    > of with automated tooling for code analysis, improvement, automatic completion, or
-    > quality assurance.
-
-    State of the Art (in Literature):
-    > There exist NLP models, mostly based on deep learning but also some statistical
-    > analysis, which can predict identifiers to aid developers, measure the quality of
-    > existing identifiers, and establish semantic relationships between identifiers,
-    > within or across languages.
-
-    Our approach:
-    > We collect a list of literature presenting state-of-the-art machine learning
-    > techniques to draw broader conclusions from: Effectiveness of current approaches,
-    > categories of implementation, and possible pathways for future research.
-
-    Implementation:
-    > [ Not applicable? Err... we write the paper? ]
-
-    Results:
-    > Ideally, we present the reader with information which helps them understand the
-    > landscape of identifier-specific software engineering tools, and inspire them
-    > to find gaps in knowledge, or improve on existing ideas.
-
-    [^1]: Writing template, courtesy of Steve Eastbrook.
-\end{verbatim}
 
 \end{document}
 % }}}
