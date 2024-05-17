@@ -30,6 +30,7 @@
 \newcommand{\TODO}[1]{\textbf{\textcolor{Bittersweet}{#1}}\xspace}
 \newcommand{\TODOM}[1]{\TODO{\emph{TODO}: #1}\xspace}
 \newcommand{\TODOB}{\TODO{\emph{TODO}}\xspace}
+\def\P(#1){\ensuremath{P\mkern-0.5mu\left( #1 \right)}}
 
 % ~~~~~~~~~~~~~~~~~~~~ Custom Settings ~~~~~~~~~~~~~~~~~~~~
 
@@ -53,6 +54,7 @@
 \newacro{NLP}[NLP]{Natural Language Processing}
 \newacro{LM}[LM]{Language Model}
 \newacro{LLM}[LLM]{Large Language Model}
+\newacro{NN}[NN]{Neural Network}
 \newacro{DNN}[DNN]{Deep Neural Network}
 \newacro{RNN}[RNN]{Recurrent Neural Network}
 \newacro{LSTM}[LSTM]{Long Short-Term Memory}
@@ -85,18 +87,21 @@ melissa.frischherz@gmail.com}
 % Abstract {{{
 % ~~~~~~~~~~~~~~~~~~~~ Abstract ~~~~~~~~~~~~~~~~~~~~
 \begin{abstract}
+
     The quality of source code identifiers has a direct, and measurable impact on program
     comprehension, indirectly influencing validity, maintainability, and security of
-    software. This paper proposes a small-scale survey of existing approaches assessing
-    the quality of identifiers. Such a measure facilitates the evaluation of naming
-    conventions in big code bases, suggestions of context-aware variable, method, or type
-    names, or even finding semantic relationships between identifiers across languages and
-    programs.
+    software. Using \acp{LM} to extract semantic information from an identifier is an
+    important but challenging task, that is fundamental to assessing its quality. This
+    paper proposes a small-scale survey of existing approaches to quantify how
+    ``suitable'' a given identifier is in some program context. Such a measure facilitates
+    the evaluation of naming conventions in big code bases, suggestions of context-aware
+    variable, method, or type names, or even finding semantic relationships between
+    identifiers across languages and programs. By leveraging promising advancements in
+    \ac{NLP} and machine learning, particularly the recent \acp{LLM}, to analyze the
+    information found in identifiers, we could greatly improve the code analyst's toolkit.
 
-    By leveraging promising advancements in \ac{NLP} and machine learning, particularly
-    the recent \acp{LLM}, to analyze the information found in identifiers, we could
-    greatly improve the code analyst's toolkit.
 \end{abstract}
+\acresetall
 
 \begin{IEEEkeywords}
 Machine Learning, Natural Language Processing, Code design, Maintainability, Software
@@ -115,16 +120,28 @@ developers, who need them to comprehend software systems,  and practically indis
 to nearly all analytical tools~\cite{Gao2019IdentGen}. An empirical study published by
 Butler et~al.\@ shows that making poor choices for method, class, and type names
 correlates with less readable, maintainable, and overall worse quality
-code~\cite{Butler2010Empirical}.
+code~\cite{Butler2010Empirical}. Recently, \ac{ML} and \ac{NLP} approaches have lead to
+the development of useful code analysis tools, such as the ``Anti-Pattern'' detector by
+Arnaoudova et al.\@~\cite{Arnaoudova2013LAs}. At the heart of such modern tools lies the
+extraction of meaning behind identifiers chosen by imperfect developers, who may introduce
+questionable naming schemes, spelling errors, or semantically faulty names. The
+information found in good identifiers, on the other hand, can be used to gather a rich
+understanding of a program's structure and intended function.
 
 In the following sections, we present a survey of various papers with a focus on
-identifiers in the context of software engineering and \acs{AI}. We pay special attention
+identifiers in the context of software engineering and \ac{AI}. We pay special attention
 to papers that attempt to qualitatively assess identifier names, which opens the path to
 generating context-dependant identifier suggestions, or finding failures to adhere to
-(implicitly) established naming conventions. Section~\ref{sec:Background} will give some
-background on the theoretical and technical frameworks, section~\ref{sec:Methodology} will
-discuss how we searched for, and selected papers, section~\ref{sec:Survey} will present
-the findings of the survey, and finally
+(implicitly) established naming conventions, for example. With this study, we aim to
+provide an entry point into this area of research in the hopes of sparking new ideas,
+highlighting current gaps in knowledge, and inspiring connections to be made across
+different fields of research. At the end of this paper, the reader should have a baseline
+understanding of relevant techniques and technologies, from which new research could be
+conducted.
+
+Section~\ref{sec:Background} will give some background on the theoretical and technical
+frameworks, section~\ref{sec:Methodology} will discuss how we searched for, and selected
+papers, section~\ref{sec:Survey} will present the findings of the survey, and finally
 sections~\ref{sec:Discussion-and-Future-Work}~and~\ref{sec:Conclusion} will conclude it
 with a discussion and ideas for future work.
 
@@ -138,16 +155,60 @@ with a discussion and ideas for future work.
 % Natural Language Processing {{{
 \subsection{\acl{NLP}}
 \label{ssec:Natural-Language-Processing}
-% }}}
 
-\TODOM{Brief discussions of grammar, $n$-grams, and vocabulary (specifically %
-       OOV, out of vocabulary problem)}
+\ac{NLP} has been an active area of research since the nineteen nineties, and was proposed
+as possible solution to machine translation as early as the fifties. The foundation for
+the grammar model used in most \ac{NLP} today is the modelling of probabilities of a word
+$s_i$ occurring given the context of the previous words in some sentence $s_1 s_2 \ldots
+s_i$. In essence, the problem is to find a probability distribution over these sentences,
+so that $\P(s_1 s_2 \ldots s_i) = \P(s_1) \P(s_2 \mid s_1) \cdots \P(s_i \mid s_1 \ldots
+s_{i-1})$ aligns with the behavior we want from the system, e.g.\@ summarizing a text.
+Historically, resources were limited, and even in ignoring the exponential nature of the
+problem, computing a history of hundreds of conditional probabilities was simply not
+feasible. This is why the $n$-gram model was developed, which ``chops off the tail end''
+of the context, thereby reducing it to $n - 1$ conditional
+probabilities~\cite{Brown1990StatMT}.
+
+As Allamanis et al.\@~\cite{Allamanis2015Suggesting} note, an issue with the $n$-gram
+model for modelling identifiers is that they often contain neologisms. That is, words that
+do not appear anywhere in the training set, also called the ``vocabulary'' of the model.
+This is self-evident when looking at an example of a getter-method name \verb-getState-,
+which could also be written as \verb-state-, \verb-retrieveState-,  \verb-getsState-, etc.
+An identifier model needs to be capable of handling \emph{out-of-vocabulary words}: This
+is known as the \ac{OOV} problem~\cite{Shi2022Splitting}.
+
+% }}}
 
 % Machine Learning {{{
 \subsection{\acl{ML}}
 \label{ssec:Machine-Learning}
 
-\TODOM{Brief discussions of neural networks, deep learning, RNNs, and transformers.}
+Classical statistical techniques paved the way for neural networks in \ac{NLP} in the 21st
+century. The basis of a \ac{NN} is the neuron, which is found in layers, and sums up
+inputs and applies some activation function to get an output. The intent with neurons is
+to model human brains to the best of our current knowledge. Deep learning is the method
+used to train \acp{DNN}, which typically contain more than four internal layers of
+neurons, also called ``hidden layers''~\cite{Sze2017DNNs}. Naturally, recognition of
+language is well-suited for \acp{DNN}, as they can be trained to provide the probabilities
+discussed in subsection~\ref{ssec:Natural-Language-Processing}.
+
+\acp{DNN} in their basic form are still incapable of handling arbitrary context lengths,
+not unlike the $n$-gram. A type of \ac{DNN}, the \ac{RNN} was developed to handle
+sequential data of arbitrary length. It achieves this by feeding its own hidden layer
+output back into itself, mimicking a basic form of memory~\cite{Gao2019IdentGen}. One
+variant of the \ac{RNN}, the \ac{LSTM} model, takes advantage of restrictions on the
+information flow through itself to improve retention~\cite{Hochreiter97LSTM}.
+
+There are many more variants of these models, arranged in different architectures. The
+encoder-decoder \ac{RNN}, and the transformer are two such examples. The transformer
+appears to be the best neural model for language at the moment, and is also represented in
+our study. Instead of using recurrence, it relies on the attention mechanism: This allows
+the model to weigh the importance of different parts of a sentence in relation to the
+currently computed probabilities. The breakthrough achieved by Vaswani et
+al.\@~\cite{Vaswani2017Transformer} was to utilize self-attention, a mechanism by which
+the model can also weigh the importance of weights within itself. In praxis, this means
+that the model learns better approximations of how to \emph{derive} the semantics of a
+sentence, not just which features to focus on.
 
 % }}}
 
@@ -195,7 +256,7 @@ since at least 1999, which is the oldest paper in our survey~\cite{Antoniol1999O
 has only recently gained in popularity. A histogram of the years of publication for our
 survey papers can be seen in figure~\ref{fig:Histogram-of-Survey-Paper-Publications}. We
 suspect this is due to the major improvements in \ac{NLP} around the time Google released
-its paper on the transformer in 2017~\cite{Ashish2017Transformer}, Peters et al.\@
+its paper on the transformer in 2017~\cite{Vaswani2017Transformer}, Peters et al.\@
 presented ELMo in the following year~\cite{Peters2018DeepCW}, and finally, BERT was
 proposed by Devlin et al.\@ in 2019~\cite{Devlin2019BERT}. This aligns with the big spike
 in publications that same year.
@@ -364,6 +425,8 @@ case~\cite{Wu2023ChatGPT}.
 
 % }}}
 
+\enlargethispage{-18mm}
+
 % Conclusion {{{
 % ~~~~~~~~~~~~~~~~~~~~ Conclusion ~~~~~~~~~~~~~~~~~~~~
 \section{Conclusion}
@@ -382,15 +445,19 @@ research and future work.
     \centering
     \caption{Overview of \acs{ML} Techniques in our Survey}
     \label{tab:Overview-of-ML-Techniques-in-our-Survey}
-    \begin{tabular}{cr} \toprule
-        Type        & \# \\ \midrule
-        \ac{DNN}    & 1 \\
-        \ac{RNN}    & 1 \\
-        Transformer & 2 \\
-        Other       & 3 \\ \bottomrule
+    \begin{tabular}{rl} \toprule
+        Technique Used & \#\hspace{0.6em} \\ \midrule
+        \ac{NN}        & 2 \\
+        \ac{DNN}       & 2 \\
+        \ac{RNN}       & 4 \\
+        Transformer    & 8 \\[1.25ex]
+        Other          & 9 \\[1.25ex]
+        N.A.\@         & 9 \\ \bottomrule
+        % \ac{DNN}       & 1 \\
+        % \ac{RNN}       & 1 \\
+        % Transformer    & 2 \\
+        % Other          & 3 \\ \bottomrule
     \end{tabular}
-
-    \vspace{3mm}\TODOM{Extend this to all 34 papers!}
 \end{table}
 
 % }}}
