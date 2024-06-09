@@ -1,0 +1,731 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nty/global//global/global}
+    \entry{Allamanis2015Suggesting}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=e1e5eb773f262866a97eef52c0456008}{%
+           family={Allamanis},
+           familyi={A\bibinitperiod},
+           given={Miltiadis},
+           giveni={M\bibinitperiod}}}%
+        {{hash=da5b7b8e6c4783fac2351cb9c4f016c4}{%
+           family={Barr},
+           familyi={B\bibinitperiod},
+           given={Earl\bibnamedelima T.},
+           giveni={E\bibinitperiod\bibinitdelim T\bibinitperiod}}}%
+        {{hash=7b11a8af9b466161096907a7d8c2476d}{%
+           family={Bird},
+           familyi={B\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod}}}%
+        {{hash=fd59f6a0549332a54ac82d8840ea6ff1}{%
+           family={Sutton},
+           familyi={S\bibinitperiod},
+           given={Charles},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Bergamo, Italy}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{3209a3eed3fa1b768e1a0e36edf9be48}
+      \strng{fullhash}{3209a3eed3fa1b768e1a0e36edf9be48}
+      \strng{bibnamehash}{3209a3eed3fa1b768e1a0e36edf9be48}
+      \strng{authorbibnamehash}{3209a3eed3fa1b768e1a0e36edf9be48}
+      \strng{authornamehash}{3209a3eed3fa1b768e1a0e36edf9be48}
+      \strng{authorfullhash}{3209a3eed3fa1b768e1a0e36edf9be48}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 2015 10th Joint Meeting on Foundations of Software Engineering}
+      \field{isbn}{9781450336758}
+      \field{numpages}{12}
+      \field{series}{ESEC/FSE 2015}
+      \field{title}{Suggesting accurate method and class names}
+      \field{year}{2015}
+      \field{pages}{38\bibrangedash 49}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1145/2786805.2786849
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/2786805.2786849
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/2786805.2786849
+      \endverb
+      \keyw{Coding conventions,naturalness of software}
+    \endentry
+    \entry{Brown1990StatMT}{article}{}
+      \name{author}{8}{}{%
+        {{hash=b269d63ed0974176f251e8034564855e}{%
+           family={Brown},
+           familyi={B\bibinitperiod},
+           given={Peter\bibnamedelima F.},
+           giveni={P\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=7e6f41b987a6ec2b9b01a3d33cdd2ddb}{%
+           family={Cocke},
+           familyi={C\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+        {{hash=4a93f8dffb0593ae148a8ef335eabe24}{%
+           family={Della\bibnamedelima Pietra},
+           familyi={D\bibinitperiod\bibinitdelim P\bibinitperiod},
+           given={Stephen\bibnamedelima A.},
+           giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=4bbdbda1345838fb46c88bd6afda258c}{%
+           family={Della\bibnamedelima Pietra},
+           familyi={D\bibinitperiod\bibinitdelim P\bibinitperiod},
+           given={Vincent\bibnamedelima J.},
+           giveni={V\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=3629ef158b240f3dd4bd6db0b67d5b36}{%
+           family={Jelinek},
+           familyi={J\bibinitperiod},
+           given={Fredrick},
+           giveni={F\bibinitperiod}}}%
+        {{hash=06ad0d36b10b63af526c5ab65eb770bd}{%
+           family={Lafferty},
+           familyi={L\bibinitperiod},
+           given={John\bibnamedelima D.},
+           giveni={J\bibinitperiod\bibinitdelim D\bibinitperiod}}}%
+        {{hash=619872e7225f85d3b1c89906ec54e067}{%
+           family={Mercer},
+           familyi={M\bibinitperiod},
+           given={Robert\bibnamedelima L.},
+           giveni={R\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+        {{hash=60b30df74a8e4cd8b96789ea5dae645e}{%
+           family={Roossin},
+           familyi={R\bibinitperiod},
+           given={Paul\bibnamedelima S.},
+           giveni={P\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+      }
+      \strng{namehash}{b427d9e90cc77f30dc1895c4386287f3}
+      \strng{fullhash}{b427d9e90cc77f30dc1895c4386287f3}
+      \strng{bibnamehash}{b427d9e90cc77f30dc1895c4386287f3}
+      \strng{authorbibnamehash}{b427d9e90cc77f30dc1895c4386287f3}
+      \strng{authornamehash}{b427d9e90cc77f30dc1895c4386287f3}
+      \strng{authorfullhash}{b427d9e90cc77f30dc1895c4386287f3}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computational Linguistics}
+      \field{number}{2}
+      \field{title}{A Statistical Approach to Machine Translation}
+      \field{volume}{16}
+      \field{year}{1990}
+      \field{pages}{79\bibrangedash 85}
+      \range{pages}{7}
+      \verb{urlraw}
+      \verb https://aclanthology.org/J90-2002
+      \endverb
+      \verb{url}
+      \verb https://aclanthology.org/J90-2002
+      \endverb
+    \endentry
+    \entry{Butler2010Empirical}{inproceedings}{}
+      \name{author}{4}{}{%
+        {{hash=5ab79291e41fef5de349f57e2c5560a0}{%
+           family={Butler},
+           familyi={B\bibinitperiod},
+           given={Simon},
+           giveni={S\bibinitperiod}}}%
+        {{hash=3916abeabd0f0cad03bbda5e89431f38}{%
+           family={Wermelinger},
+           familyi={W\bibinitperiod},
+           given={Michel},
+           giveni={M\bibinitperiod}}}%
+        {{hash=125e636cb657d0fdc5e175348ee198d3}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Yijun},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=3c13b944e2b68ee928fb824b303ed11f}{%
+           family={Sharp},
+           familyi={S\bibinitperiod},
+           given={Helen},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{8e10176339e39a8452bfd8846a1af2c0}
+      \strng{fullhash}{8e10176339e39a8452bfd8846a1af2c0}
+      \strng{bibnamehash}{8e10176339e39a8452bfd8846a1af2c0}
+      \strng{authorbibnamehash}{8e10176339e39a8452bfd8846a1af2c0}
+      \strng{authornamehash}{8e10176339e39a8452bfd8846a1af2c0}
+      \strng{authorfullhash}{8e10176339e39a8452bfd8846a1af2c0}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2010 14th European Conference on Software Maintenance and Reengineering}
+      \field{title}{Exploring the Influence of Identifier Names on Code Quality: An Empirical Study}
+      \field{year}{2010}
+      \field{pages}{156\bibrangedash 165}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1109/CSMR.2010.27
+      \endverb
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/document/5714430
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/document/5714430
+      \endverb
+      \keyw{Java;Guidelines;Complexity theory;Dictionaries;Readability metrics; Sensitivity;programming;software metrics;software quality}
+    \endentry
+    \entry{elicit}{software}{}
+      \name{author}{1}{}{%
+        {{hash=f9188060720bd15b5e624177501711bd}{%
+           family={{Elicit}},
+           familyi={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{f9188060720bd15b5e624177501711bd}
+      \strng{fullhash}{f9188060720bd15b5e624177501711bd}
+      \strng{bibnamehash}{f9188060720bd15b5e624177501711bd}
+      \strng{authorbibnamehash}{f9188060720bd15b5e624177501711bd}
+      \strng{authornamehash}{f9188060720bd15b5e624177501711bd}
+      \strng{authorfullhash}{f9188060720bd15b5e624177501711bd}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{24}
+      \field{month}{1}
+      \field{title}{Elicit: The AI Research Assistant}
+      \field{year}{2023}
+      \field{dateera}{ce}
+      \verb{urlraw}
+      \verb https://elicit.com
+      \endverb
+      \verb{url}
+      \verb https://elicit.com
+      \endverb
+    \endentry
+    \entry{Gao2019IdentGen}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{hash=6ad13cc8979aa675f5a6203eaaf347fd}{%
+           family={Gao},
+           familyi={G\bibinitperiod},
+           given={Sa},
+           giveni={S\bibinitperiod}}}%
+        {{hash=44f37120f1686d1133969a7d8cbac0c3}{%
+           family={Chen},
+           familyi={C\bibinitperiod},
+           given={Chunyang},
+           giveni={C\bibinitperiod}}}%
+        {{hash=4ae2acd2b75c048ed13c08ebfc75e822}{%
+           family={Xing},
+           familyi={X\bibinitperiod},
+           given={Zhenchang},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=896653717bab89b356e47676ee9e0d74}{%
+           family={Ma},
+           familyi={M\bibinitperiod},
+           given={Yukun},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=8ce92e865bf930b1b459e3f0734a634d}{%
+           family={Song},
+           familyi={S\bibinitperiod},
+           given={Wen},
+           giveni={W\bibinitperiod}}}%
+        {{hash=e42b78e99230c885b23c13313f2e45a8}{%
+           family={Lin},
+           familyi={L\bibinitperiod},
+           given={Shang-Wei},
+           giveni={S\bibinithyphendelim W\bibinitperiod}}}%
+      }
+      \strng{namehash}{21dc483da50a8290b7e7b0185d05822b}
+      \strng{fullhash}{21dc483da50a8290b7e7b0185d05822b}
+      \strng{bibnamehash}{21dc483da50a8290b7e7b0185d05822b}
+      \strng{authorbibnamehash}{21dc483da50a8290b7e7b0185d05822b}
+      \strng{authornamehash}{21dc483da50a8290b7e7b0185d05822b}
+      \strng{authorfullhash}{21dc483da50a8290b7e7b0185d05822b}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2019 IEEE 26th International Conference on Software Analysis, Evolution and Reengineering (SANER)}
+      \field{issn}{1534-5351}
+      \field{month}{2}
+      \field{title}{A Neural Model for Method Name Generation from Functional Description}
+      \field{year}{2019}
+      \field{pages}{414\bibrangedash 421}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/SANER.2019.8667994
+      \endverb
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/document/8667994
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/document/8667994
+      \endverb
+      \keyw{Natural languages;Decoding;Task analysis;Software;Training; Predictive models; Computational modeling;Naming Convention; Encoder-Decoder Model; Transfer Learning}
+    \endentry
+    \entry{googlescholar}{software}{}
+      \name{author}{1}{}{%
+        {{hash=8b36e9207c24c76e6719268e49201d94}{%
+           family={{Google}},
+           familyi={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{fullhash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{bibnamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorbibnamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authornamehash}{8b36e9207c24c76e6719268e49201d94}
+      \strng{authorfullhash}{8b36e9207c24c76e6719268e49201d94}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Google Scholar}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://scholar.google.com
+      \endverb
+      \verb{url}
+      \verb https://scholar.google.com
+      \endverb
+    \endentry
+    \entry{Hochreiter97LSTM}{article}{}
+      \name{author}{2}{}{%
+        {{hash=41b31e29fb2bdbf9f5c9c1b0d5b3e815}{%
+           family={Hochreiter},
+           familyi={H\bibinitperiod},
+           given={Sepp},
+           giveni={S\bibinitperiod}}}%
+        {{hash=288bdbcfe1b91ad7484d7a24f74f99ed}{%
+           family={Schmidhuber},
+           familyi={S\bibinitperiod},
+           given={Jürgen},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{fullhash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{bibnamehash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{authorbibnamehash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{authornamehash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{authorfullhash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Neural computation}
+      \field{month}{12}
+      \field{title}{Long Short-term Memory}
+      \field{volume}{9}
+      \field{year}{1997}
+      \field{pages}{1735\bibrangedash 80}
+      \range{pages}{51}
+      \verb{doi}
+      \verb 10.1162/neco.1997.9.8.1735
+      \endverb
+    \endentry
+    \entry{ieeexplore}{software}{}
+      \name{author}{2}{}{%
+        {{hash=472abfae8142fdb6f39d081303e8af85}{%
+           family={{IEEE}},
+           familyi={I\bibinitperiod}}}%
+        {{hash=8849b2726cabfd7ba4fa840c106ae810}{%
+           family={{IET}},
+           familyi={I\bibinitperiod}}}%
+      }
+      \strng{namehash}{a50ae807bcdd657254c25636d23f6fdf}
+      \strng{fullhash}{a50ae807bcdd657254c25636d23f6fdf}
+      \strng{bibnamehash}{a50ae807bcdd657254c25636d23f6fdf}
+      \strng{authorbibnamehash}{a50ae807bcdd657254c25636d23f6fdf}
+      \strng{authornamehash}{a50ae807bcdd657254c25636d23f6fdf}
+      \strng{authorfullhash}{a50ae807bcdd657254c25636d23f6fdf}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{IEEEXplore}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org
+      \endverb
+    \endentry
+    \entry{Ju2023XLangBinding}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=58e6096b3be51cbb9ce0111b987fa5e2}{%
+           family={Ju},
+           familyi={J\bibinitperiod},
+           given={Yue},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=b766befe2df72554f05ac0fbb66a6bd1}{%
+           family={Tang},
+           familyi={T\bibinitperiod},
+           given={Yixuan},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=e448cfd09b37023e2b9cc1fcb850229b}{%
+           family={Lan},
+           familyi={L\bibinitperiod},
+           given={Jinpeng},
+           giveni={J\bibinitperiod}}}%
+        {{hash=50221c94c3f68ebb89ce9be81c3af57e}{%
+           family={Mi},
+           familyi={M\bibinitperiod},
+           given={Xiangbo},
+           giveni={X\bibinitperiod}}}%
+        {{hash=45f6403aa980093117f28224d747caf1}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Jingxuan},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c339f2c15392dd6d9ff2d09a203794e}
+      \strng{fullhash}{9c339f2c15392dd6d9ff2d09a203794e}
+      \strng{bibnamehash}{9c339f2c15392dd6d9ff2d09a203794e}
+      \strng{authorbibnamehash}{9c339f2c15392dd6d9ff2d09a203794e}
+      \strng{authornamehash}{9c339f2c15392dd6d9ff2d09a203794e}
+      \strng{authorfullhash}{9c339f2c15392dd6d9ff2d09a203794e}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2023 IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER)}
+      \field{title}{A Cross-Language Name Binding Recognition and Discrimination Approach for Identifiers}
+      \field{year}{2023}
+      \field{pages}{948\bibrangedash 955}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1109/SANER56733.2023.00115
+      \endverb
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/document/10123604
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/document/10123604
+      \endverb
+      \keyw{Deep learning;Java;Analytical models;Semantics;Bit error rate; Feature extraction;Software;Cross Language;Name Binding;Deep Learning}
+    \endentry
+    \entry{Karampatsis2020BPE}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=fda7c6a069651fd9f11d4bd0da3ddcb3}{%
+           family={Karampatsis},
+           familyi={K\bibinitperiod},
+           given={Rafael-Michael},
+           giveni={R\bibinithyphendelim M\bibinitperiod}}}%
+        {{hash=c4845fd274a127d6b1ec5e96ff306ac1}{%
+           family={Babii},
+           familyi={B\bibinitperiod},
+           given={Hlib},
+           giveni={H\bibinitperiod}}}%
+        {{hash=292c6187aba734847b0ddbb3e0459c18}{%
+           family={Robbes},
+           familyi={R\bibinitperiod},
+           given={Romain},
+           giveni={R\bibinitperiod}}}%
+        {{hash=fd59f6a0549332a54ac82d8840ea6ff1}{%
+           family={Sutton},
+           familyi={S\bibinitperiod},
+           given={Charles},
+           giveni={C\bibinitperiod}}}%
+        {{hash=745d2917e86e07ae4f4da24e03c7732f}{%
+           family={Janes},
+           familyi={J\bibinitperiod},
+           given={Andrea},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Seoul, South Korea}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{a6a51c67da2746a969e18ebac31ad208}
+      \strng{fullhash}{a6a51c67da2746a969e18ebac31ad208}
+      \strng{bibnamehash}{a6a51c67da2746a969e18ebac31ad208}
+      \strng{authorbibnamehash}{a6a51c67da2746a969e18ebac31ad208}
+      \strng{authornamehash}{a6a51c67da2746a969e18ebac31ad208}
+      \strng{authorfullhash}{a6a51c67da2746a969e18ebac31ad208}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the ACM/IEEE 42nd International Conference on Software Engineering}
+      \field{isbn}{9781450371216}
+      \field{numpages}{13}
+      \field{series}{ICSE '20}
+      \field{title}{Big code != big vocabulary: open-vocabulary models for source code}
+      \field{year}{2020}
+      \field{pages}{1073\bibrangedash 1085}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1145/3377811.3380342
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/3377811.3380342
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/3377811.3380342
+      \endverb
+      \keyw{byte-pair encoding,naturalness of code,neural language models}
+    \endentry
+    \entry{Shi2022Splitting}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=2826b12c3180a599a23275c77288abc1}{%
+           family={Shi},
+           familyi={S\bibinitperiod},
+           given={Jieke},
+           giveni={J\bibinitperiod}}}%
+        {{hash=9ff4b29547ca71e4559aa812d21fe1f0}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Zhou},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=0c2e6ca82595612c221af1adbdab2b36}{%
+           family={He},
+           familyi={H\bibinitperiod},
+           given={Junda},
+           giveni={J\bibinitperiod}}}%
+        {{hash=8f039f48b008744a83f47cdeeabc636a}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Bowen},
+           giveni={B\bibinitperiod}}}%
+        {{hash=cac8ebdbf2f8a8f2b7f49f6e737c2649}{%
+           family={Lo},
+           familyi={L\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{d9055927dcfd92d819c8e72535ac12c2}
+      \strng{fullhash}{d9055927dcfd92d819c8e72535ac12c2}
+      \strng{bibnamehash}{d9055927dcfd92d819c8e72535ac12c2}
+      \strng{authorbibnamehash}{d9055927dcfd92d819c8e72535ac12c2}
+      \strng{authornamehash}{d9055927dcfd92d819c8e72535ac12c2}
+      \strng{authorfullhash}{d9055927dcfd92d819c8e72535ac12c2}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2022 IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER)}
+      \field{title}{Can Identifier Splitting Improve Open-Vocabulary Language Model of Code?}
+      \field{year}{2022}
+      \field{pages}{1134\bibrangedash 1138}
+      \range{pages}{5}
+      \verb{doi}
+      \verb 10.1109/SANER53432.2022.00130
+      \endverb
+      \keyw{Vocabulary;Codes;Software algorithms;Semantics;Predictive models;Writing; Prediction algorithms;Open Vocabulary;Identifier Splitting; Language Model of Code}
+    \endentry
+    \entry{Vaswani2017Transformer}{inproceedings}{}
+      \name{author}{8}{}{%
+        {{hash=7f28e84700536646dd6620a0db07ad09}{%
+           family={Vaswani},
+           familyi={V\bibinitperiod},
+           given={Ashish},
+           giveni={A\bibinitperiod}}}%
+        {{hash=62efade83d70f0323fe248755e6c90c5}{%
+           family={Shazeer},
+           familyi={S\bibinitperiod},
+           given={Noam},
+           giveni={N\bibinitperiod}}}%
+        {{hash=06649ebab1ea5cac0250746a19764975}{%
+           family={Parmar},
+           familyi={P\bibinitperiod},
+           given={Niki},
+           giveni={N\bibinitperiod}}}%
+        {{hash=831027ee0ebf22375e2a86afc1881909}{%
+           family={Uszkoreit},
+           familyi={U\bibinitperiod},
+           given={Jakob},
+           giveni={J\bibinitperiod}}}%
+        {{hash=2fd2982e30ebcec93ec1cf76e0d797fd}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={Llion},
+           giveni={L\bibinitperiod}}}%
+        {{hash=27b07e4eacbf4ef7a1438e3badb7dd8d}{%
+           family={Gomez},
+           familyi={G\bibinitperiod},
+           given={Aidan\bibnamedelima N.},
+           giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+        {{hash=540fcd72e1fa4bbed46604f4e6cff817}{%
+           family={Kaiser},
+           familyi={K\bibinitperiod},
+           given={Łukasz},
+           giveni={Ł\bibinitperiod}}}%
+        {{hash=95595a0fefb86187cbc36e551017d332}{%
+           family={Polosukhin},
+           familyi={P\bibinitperiod},
+           given={Illia},
+           giveni={I\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Long Beach, California, USA}%
+      }
+      \list{publisher}{1}{%
+        {Curran Associates Inc.}%
+      }
+      \strng{namehash}{cb26e47f6b8133865271fc8483132297}
+      \strng{fullhash}{cb26e47f6b8133865271fc8483132297}
+      \strng{bibnamehash}{cb26e47f6b8133865271fc8483132297}
+      \strng{authorbibnamehash}{cb26e47f6b8133865271fc8483132297}
+      \strng{authornamehash}{cb26e47f6b8133865271fc8483132297}
+      \strng{authorfullhash}{cb26e47f6b8133865271fc8483132297}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Proceedings of the 31st International Conference on Neural Information Processing Systems}
+      \field{isbn}{9781510860964}
+      \field{numpages}{11}
+      \field{series}{NIPS'17}
+      \field{title}{Attention is all you need}
+      \field{year}{2017}
+      \field{pages}{6000\bibrangedash 6010}
+      \range{pages}{11}
+    \endentry
+    \entry{Villmow2023Violations}{inproceedings}{}
+      \name{author}{6}{}{%
+        {{hash=250a49f3da365a640559e81b11ef412d}{%
+           family={Villmow},
+           familyi={V\bibinitperiod},
+           given={Johannes},
+           giveni={J\bibinitperiod}}}%
+        {{hash=adeeefd4c74c7296601e75c82c676c6c}{%
+           family={Campos},
+           familyi={C\bibinitperiod},
+           given={Viola},
+           giveni={V\bibinitperiod}}}%
+        {{hash=0f5bad513c7c7860f18453027d65f2cd}{%
+           family={Petry},
+           familyi={P\bibinitperiod},
+           given={Jean},
+           giveni={J\bibinitperiod}}}%
+        {{hash=144c3bb51320134de9cd2600d5c47db1}{%
+           family={Abbad-Andaloussi},
+           familyi={A\bibinithyphendelim A\bibinitperiod},
+           given={Amine},
+           giveni={A\bibinitperiod}}}%
+        {{hash=037f2041c009833eed7ca6cad24369c5}{%
+           family={Ulges},
+           familyi={U\bibinitperiod},
+           given={Adrian},
+           giveni={A\bibinitperiod}}}%
+        {{hash=e0543bde0cc228ee5b6158f5238c82b3}{%
+           family={Weber},
+           familyi={W\bibinitperiod},
+           given={Barbara},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{17c3e5ab4c6bd0a319507503ebcc1f06}
+      \strng{fullhash}{17c3e5ab4c6bd0a319507503ebcc1f06}
+      \strng{bibnamehash}{17c3e5ab4c6bd0a319507503ebcc1f06}
+      \strng{authorbibnamehash}{17c3e5ab4c6bd0a319507503ebcc1f06}
+      \strng{authornamehash}{17c3e5ab4c6bd0a319507503ebcc1f06}
+      \strng{authorfullhash}{17c3e5ab4c6bd0a319507503ebcc1f06}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2023 IEEE 23rd International Working Conference on Source Code Analysis and Manipulation (SCAM)}
+      \field{title}{How Well Can Masked Language Models Spot Identifiers That Violate Naming Guidelines?}
+      \field{year}{2023}
+      \field{pages}{131\bibrangedash 142}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1109/SCAM59687.2023.00023
+      \endverb
+      \verb{urlraw}
+      \verb https://ieeexplore.ieee.org/abstract/document/10356698
+      \endverb
+      \verb{url}
+      \verb https://ieeexplore.ieee.org/abstract/document/10356698
+      \endverb
+      \keyw{Training;Analytical models;Computer languages;Codes;Source coding; Training data;Transformers;Masked Language Models;Source Code Identfiers; Naming Guidelines;Code Quality;Identfier Quality Assessment; Generative Approaches;Language Model Fine-tuning;Code Transformers; AI-based Code Analysis}
+    \endentry
+    \entry{Zhang2023RenamingPrediction}{article}{}
+      \name{author}{5}{}{%
+        {{hash=45f6403aa980093117f28224d747caf1}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Jingxuan},
+           giveni={J\bibinitperiod}}}%
+        {{hash=46eb756019d9d2aa588fa14c98784a63}{%
+           family={Luo},
+           familyi={L\bibinitperiod},
+           given={Junpeng},
+           giveni={J\bibinitperiod}}}%
+        {{hash=502b8e1cd3e8563f85c6b338064a333b}{%
+           family={Liang},
+           familyi={L\bibinitperiod},
+           given={Jiahui},
+           giveni={J\bibinitperiod}}}%
+        {{hash=37c2f28083aa8df40674cd4102feb02c}{%
+           family={Gong},
+           familyi={G\bibinitperiod},
+           given={Lina},
+           giveni={L\bibinitperiod}}}%
+        {{hash=77413e9ddd4d9d6b5ce3521ce199a29c}{%
+           family={Huang},
+           familyi={H\bibinitperiod},
+           given={Zhiqiu},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{7d5286f848988f37a5a97ac1354165a9}
+      \strng{fullhash}{7d5286f848988f37a5a97ac1354165a9}
+      \strng{bibnamehash}{7d5286f848988f37a5a97ac1354165a9}
+      \strng{authorbibnamehash}{7d5286f848988f37a5a97ac1354165a9}
+      \strng{authornamehash}{7d5286f848988f37a5a97ac1354165a9}
+      \strng{authorfullhash}{7d5286f848988f37a5a97ac1354165a9}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{articleno}{148}
+      \field{issn}{1049-331X}
+      \field{journaltitle}{ACM Trans. Softw. Eng. Methodol.}
+      \field{month}{9}
+      \field{number}{6}
+      \field{numpages}{51}
+      \field{title}{An Accurate Identifier Renaming Prediction and Suggestion Approach}
+      \field{volume}{32}
+      \field{year}{2023}
+      \verb{doi}
+      \verb 10.1145/3603109
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/3603109
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/3603109
+      \endverb
+      \keyw{Identifier renaming,source code analysis,code refactoring,mining code repository}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

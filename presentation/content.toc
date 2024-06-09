@@ -1,0 +1,7 @@
+\babel@toc {english}{}\relax 
+\beamer@subsectionintoc {1}{1}{Overview}{2}{0}{0}
+\beamer@subsectionintoc {1}{2}{Methodology}{7}{0}{0}
+\beamer@subsectionintoc {2}{1}{\acl {NLP}}{9}{0}{0}
+\beamer@subsectionintoc {2}{2}{\aclp {NN}}{15}{0}{0}
+\beamer@sectionintoc {3}{The Future}{23}{0}{1}
+\beamer@sectionintoc {4}{References}{27}{0}{2}
