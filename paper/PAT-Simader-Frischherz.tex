@@ -90,15 +90,15 @@ melissa.frischherz@gmail.com}
 
     The quality of source code identifiers has a direct, and measurable impact on program
     comprehension, indirectly influencing validity, maintainability, and security of
-    software. Using \acp{LM} to extract semantic information from an identifier is an
-    important but challenging task, that is fundamental to assessing its quality. This
-    paper proposes a small-scale survey of existing approaches to quantify how
-    ``suitable'' a given identifier is in some program context. Such a measure facilitates
-    the evaluation of naming conventions in big code bases, suggestions of context-aware
-    variable, method, or type names, or even finding semantic relationships between
-    identifiers across languages and programs. By leveraging promising advancements in
-    \ac{NLP} and machine learning, particularly the recent \acp{LLM}, to analyze the
-    information found in identifiers, we could greatly improve the code analyst's toolkit.
+    software. Using \acp{LM} to extract semantic information from identifiers is an
+    important but challenging task fundamental to assessing its quality. This paper
+    proposes a small-scale survey of existing approaches to quantify how ``suitable'' a
+    given identifier is in some program context. Such a measure facilitates the evaluation
+    of naming conventions in big code bases, suggestions of context-aware variable,
+    method, or type names, or even finding semantic relationships between identifiers
+    across languages and projects. By leveraging promising advancements in \ac{NLP} and
+    machine learning, particularly the recent \acp{LLM}, to analyze the information found
+    in identifiers, we could greatly improve the code analyst's toolkit.
 
 \end{abstract}
 \acresetall
@@ -179,9 +179,9 @@ is known as the \ac{OOV} problem~\cite{Shi2022Splitting}.
 
 % }}}
 
-% Machine Learning {{{
-\subsection{\acl{ML}}
-\label{ssec:Machine-Learning}
+% Neural Networks {{{
+\subsection{\aclp{NN}}
+\label{ssec:Neural-Networks}
 
 Classical statistical techniques paved the way for neural networks in \ac{NLP} in the 21st
 century. The basis of a \ac{NN} is the neuron, which is found in layers, and sums up
@@ -264,7 +264,7 @@ in publications that same year.
 \begin{figure}[h!]
     \begin{tikzpicture}
         \begin{axis}[%
-            ybar, bar width=5pt, ylabel={\# Publications}, xlabel={Year},
+            ybar, bar width=6.5pt, ylabel={\# Publications}, xlabel={Year},
             enlargelimits=0.03,
             symbolic x coords={1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007,%
                                2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015,%
